@@ -9,7 +9,7 @@ class Controller
      * @param $file à afficher.
      */
     public function view($file, $data = []) {
-        $path = "Views/$file.php.";
+        $path = "Views/$file.php";
 
         if (file_exists($path)) {
 
@@ -19,7 +19,7 @@ class Controller
 
             include $path;
         } else {
-            include "View/Error.php";
+            include "Views/Error.php";
         }
     }
 
