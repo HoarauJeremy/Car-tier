@@ -38,7 +38,7 @@
 
         <main class="container">
 
-            <div id="message" class="bg-danger-subtle border border-danger-subtle text-danger-emphasis rounded">
+            <div id="message" class=<?php isset($_GET['msg']) ? "bg-danger-subtle border border-danger-subtle text-danger-emphasis rounded" : ""?>>
                 <?php isset($_GET['msg']) ? $_GET['msg'] : ''; ?>
             </div>
             
