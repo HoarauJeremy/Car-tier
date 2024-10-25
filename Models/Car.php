@@ -36,6 +36,25 @@
                 echo $pDOException->getMessage();
             }
         }
+
+        /**
+         * 
+         * @param $filter Filtre
+         **/
+        public function getFilteredCar($filter)
+        {
+            try {
+                $sql = "SELECT * FROM `car` WHERE `modelName` LIKE '%$filter%' ;";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute();
+                $cars = $rqt->fetchAll(PDO::FETCH_ASSOC);
+                $rqt->closeCursor();
+                return $cars;
+            } catch (\PDOException $pDOException) {
+                echo $pDOException->getMessage();
+            }
+        }
+
     }
 
     class CarData 
