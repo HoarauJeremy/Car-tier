@@ -67,7 +67,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="?url=car/showOne/" class="btn btn-sm btn-outline-secondary">View</a>
-                                <a href="?url=reservation/" class="btn btn-sm btn-outline-secondary">Réserver</a>
+                                <a href="?url=reservation/index" class="btn btn-sm btn-outline-secondary">Réserver</a>
                             </div>
                             <small class="text-body-secondary">9 mins</small>
                         </div>
