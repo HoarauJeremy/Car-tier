@@ -27,18 +27,18 @@
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="/Car_tier" class="nav-link active" aria-current="page">Home</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="?url=user/connection" class="nav-link">About</a></li>
                 </ul>
             </header>
         </div>
 
         <main class="container">
 
-            <div id="message">
+            <div id="message" class="bg-danger-subtle border border-danger-subtle text-danger-emphasis rounded">
                 <?php isset($_GET['msg']) ? $_GET['msg'] : ''; ?>
             </div>
             
