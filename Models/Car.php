@@ -22,20 +22,35 @@
                 echo $pDOException->getMessage();
             }
         }
+        
+        // Récupère certaine information sur les voitures
+        public function getCarsInformation() {
+            try {
+                $sql = "SELECT brandName, modelName, vehicleType, fuelType, capacity FROM car;";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute();
+                $cars = $rqt->fetchAll(PDO::FETCH_ASSOC);
+                $rqt->closeCursor();
+                return $cars;
+            } catch (\PDOException $pDOException) {
+                echo $pDOException->getMessage();
+            }
+        }
     }
 
     class CarData 
     {
-        public $idReservation;
-        public $reservationStartDate;
-        public $reservationEndDate;
-        public $reservationStartTime;
-        public $reservationEndTime;
-        public $totalPrice;
-        public $user;
-        public $carBrand;
-        public $carModel;
-        
+        public $carId;
+        public $brandName;
+        public $modelName;
+        public $vehicleType;
+        public $creationYear;
+        public $horsePower;
+        public $fuelType;
+        public $capacity;
+        public $numberDoors;
+        public $numberSeats;
+            
         public function __construct(array $data) {
             $this->hydrate($data);
         }
@@ -49,77 +64,86 @@
             }
         }
     
-        // GETTER
-        public function getIdReservation() {
-            return $this->idReservation;
+        // GETTERS
+        public function getCarId() {
+            return $this->carId;
         }
-    
-        public function getReservationStartDate() {
-            return $this->reservationStartDate;
+
+        public function getBrandName() {
+            return $this->brandName;
         }
-    
-        public function getReservationEndDate() {
-            return $this->reservationEndDate;
+
+        public function getModelName() {
+            return $this->modelName;
         }
-    
-        public function getReservationStartTime() {
-            return $this->reservationStartTime;
+
+        public function getVehicleType() {
+            return $this->vehicleType;
         }
-    
-        public function getReservationEndTime() {
-            return $this->reservationEndTime;
+
+        public function getCreationYear() {
+            return $this->creationYear;
         }
-    
-        public function getTotalPrice() {
-            return $this->totalPrice;
+
+        public function getHorsePower() {
+            return $this->horsePower;
         }
-    
-        public function getUser() {
-            return $this->user;
+
+        public function getFuelType() {
+            return $this->fuelType;
         }
-    
-        public function getCarBrand() {
-            return $this->carBrand;
+
+        public function getCapacity() {
+            return $this->capacity;
         }
-    
-        public function getCarModel() {
-            return $this->carModel;
+
+        public function getNumberDoors() {
+            return $this->numberDoors;
         }
-    
-        // SETTER
-        public function setIdReservation($idReservation) {
-            $this->idReservation = $idReservation;
+
+        public function getNumberSeats() {
+            return $this->numberSeats;
         }
-    
-        public function setReservationStartDate($reservationStartDate) {
-            $this->reservationStartDate = $reservationStartDate;
+
+        // SETTERS
+        public function setCarId($carId) {
+            $this->carId = $carId;
         }
-    
-        public function setReservationEndDate($reservationEndDate) {
-            $this->reservationEndDate = $reservationEndDate;
+
+        public function setBrandName($brandName) {
+            $this->brandName = $brandName;
         }
-    
-        public function setReservationStartTime($reservationStartTime) {
-            $this->reservationStartTime = $reservationStartTime;
+
+        public function setModelName($modelName) {
+            $this->modelName = $modelName;
         }
-    
-        public function setReservationEndTime($reservationEndTime) {
-            $this->reservationEndTime = $reservationEndTime;
+
+        public function setVehicleType($vehicleType) {
+            $this->vehicleType = $vehicleType;
         }
-    
-        public function setTotalPrice($totalPrice) {
-            $this->totalPrice = $totalPrice;
+
+        public function setCreationYear($creationYear) {
+            $this->creationYear = $creationYear;
         }
-        
-        public function setUser($user) {
-            $this->user = $user;
+
+        public function setHorsePower($horsePower) {
+            $this->horsePower = $horsePower;
         }
-    
-        public function setCarBrand($carBrand) {
-            $this->carBrand = $carBrand;
+
+        public function setFuelType($fuelType) {
+            $this->fuelType = $fuelType;
         }
-    
-        public function setCarModel($carModel) {
-            $this->carModel = $carModel;
+
+        public function setCapacity($capacity) {
+            $this->capacity = $capacity;
         }
+
+        public function setNumberDoors($numberDoors) {
+            $this->numberDoors = $numberDoors;
+        }
+
+        public function setNumberSeats($numberSeats) {
+            $this->numberSeats = $numberSeats;
+        }
+
     }
