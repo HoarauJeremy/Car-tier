@@ -19,9 +19,13 @@
             $this->view('Home', ["car" => $allCar]);
         }
 
-        // public function mention() {
-        //     $this->view("mentionLegale");
-        // }
+        public function filter() {
+            $modelName = $_POST['modelName'];
+            $filteredCar = $this->car->getFilteredCar($modelName);
+            // var_dump($filteredCar);
+
+            $this->view("Home", ["car" => $filteredCar]);
+        }
 
         public function error() {
             $this->view("Error");
