@@ -32,14 +32,14 @@ class UserController extends Controller
     }
     
     public function connect() {
-        $email = $_POST['mail'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
         $hashedPassword = $this->user->getPassword($email);
 
         $userInfo = $this->user->getUserInformation($email);
         // var_dump($userInfo);
 
-        if (password_verify($password, $hashedPassword['password'])) {
+        if (password_verify($password, $hashedPassword)) {
             $_SESSION['status'] = true;
             $_SESSION['id'] = $this->user->getUserId($email);
             $_SESSION['nom'] = $userInfo[0]['nom'] ?? "";
@@ -64,13 +64,17 @@ class UserController extends Controller
     
     public function store() {
         if (isset($_POST['submit'])) {
+            // var_dump($_POST);
             $utilisateur = [
-                isset($_POST['lastName']) ? $_POST['lastName'] : null,
-                isset($_POST['firstName']) ? $_POST['firstName'] : null,
-                isset($_POST['phone']) ? $_POST['phone'] : null,
-                isset($_POST['email']) ? $_POST['email'] : null,
-                password_hash($_POST['password'], PASSWORD_BCRYPT),
+                "lName" => isset($_POST['lastName']) ? $_POST['lastName'] : null,
+                "fName" => isset($_POST['firstName']) ? $_POST['firstName'] : null,
+                "phoneNumber" => isset($_POST['phone']) ? $_POST['phone'] : null,
+                "email" => isset($_POST['email']) ? $_POST['email'] : null,
+                "password" => password_hash($_POST['password'], PASSWORD_BCRYPT),
+                "userType" => 1
             ];
+
+            // var_dump($utilisateur);
             
             $this->user->insertUser($utilisateur);
             // file_exists($this->view('User/connexion')) ? require_once $this->view('User/connexion') : include $this->view('Error');
