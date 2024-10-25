@@ -27,11 +27,8 @@
                 </a>
 
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="/Car_tier" class="nav-link active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                    <li class="nav-item"><a href="?url=user/connection" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/Car_tier" class="nav-link btn border border-primary mx-1" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="?url=user/connection" class="nav-link mx-1 active">Se connecter</a></li>
                 </ul>
             </header>
         </div>
