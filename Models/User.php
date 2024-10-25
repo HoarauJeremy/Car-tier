@@ -12,11 +12,11 @@
 
         public function insertUser(array $data) {
             try {
-                $sql = 'INSERT INTO utilisateur (lastName, firstName, phoneNumber, email, password, userType) 
+                $sql = 'INSERT INTO user (lastName, firstName, phoneNumber, email, password, userType) 
                         VALUES (:lastName, :firstName, :phoneNumber, :email, :password, :userType);';
                 $rqt = $this->cnx->prepare($sql);
-                $rqt->bindValue(':lastName', $data['lastName']);
-                $rqt->bindValue(':firstName', $data['firstName']);
+                $rqt->bindValue(':lastName', $data['lName']);
+                $rqt->bindValue(':firstName', $data['fName']);
                 $rqt->bindValue(':phoneNumber', $data['phoneNumber']);
                 $rqt->bindValue(':email', $data['email']);
                 $rqt->bindValue(':password', password_hash($data['password'], PASSWORD_BCRYPT)); // Hashage du mot de passe
@@ -59,7 +59,7 @@
             $rqt->execute();
             $result = $rqt->fetch(PDO::FETCH_ASSOC);
             $rqt->closeCursor();
-    
+            var_dump("fezf");
             return $result ? $result['userId'] : null; // Return null if user does not exist
         }
 
