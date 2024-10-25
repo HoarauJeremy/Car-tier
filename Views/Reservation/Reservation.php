@@ -9,47 +9,63 @@
 
                 <div class="form-floating mb-3">
                     <input
-                    type="date"
-                    class="form-control"
-                    name="formId1"
-                    id="formId1"
-                        placeholder=""
+                        type="date"
+                        class="form-control"
+                        name="reservationStartDate"
+                        id="reservationStartDate"
+                        placeholder="Date de départ"
                     />
-                    <label for="formId1">Name</label>
+                    <label for="reservationStartDate">Date de départ</label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input
                     type="date"
                         class="form-control"
-                        name="formId1"
-                        id="formId1"
-                        placeholder=""
+                        name="reservationEndDate"
+                        id="reservationEndDate"
+                        placeholder="Date de fin"
                         />
-                        <label for="formId1">Name</label>
+                        <label for="reservationEndDate">Date de fin</label>
                 </div>
                 
                 <div class="form-floating mb-3">
                     <input
-                    type="time"
-                    class="form-control"
-                    name="formId1"
-                    id="formId1"
-                        placeholder=""
-                        />
-                        <label for="formId1">Name</label>
+                        type="time"
+                        class="form-control"
+                        name="reservationStartTime"
+                        id="reservationStartTime"
+                        placeholder="Heure de récuperation du vehicule"
+                    />
+                        <label for="reservationStartTime">Heure de récuperation du vehicule</label>
                     </div>
 
                     <div class="form-floating mb-3">
                         <input
                         type="time"
                         class="form-control"
-                        name="formId1"
-                        id="formId1"
+                        name="reservationEndTime"
+                        id="reservationEndTime"
                         placeholder=""
                     />
-                    <label for="formId1">Name</label>
+                    <label for="reservationEndTime">Name</label>
                 </div>
+
+                <input type="text" name="carId" id="carId" value="" hidden>
+
+                <!-- Recupere le prix depuis la table CAR -->
+                <div class="form-floating mb-3">
+                    <input
+                        type="number"
+                        class="form-control"
+                        name="totalPrice"
+                        id="totalPrice"
+                        placeholder="Prix"
+                        readonly
+                    />
+                    <label for="totalPrice">Prix</label>
+                </div>
+                
 
                 <button
                     type="submit"

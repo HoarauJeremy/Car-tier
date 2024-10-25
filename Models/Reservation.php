@@ -30,6 +30,20 @@
             }
         }
 
+        public function insertCarReserved(array $data) {
+            try {
+                $sql = 'INSERT INTO car_reserved (reservationId, carId) VALUES (:reservationId, :carId);';
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->bindValue(':reservationId', $data['']);
+                $rqt->bindValue(':carId', $data['']);
+                $rqt->execute();
+                $rqt->closeCursor();
+
+            } catch (\PDOException $pDOException) {
+                echo $pDOException->getMessage();
+            }
+        }
+
         // Méthode pour récupérer l'ID de la dernière réservation
         public function getReservationId($userId) {
             try {
