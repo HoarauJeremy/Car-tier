@@ -7,20 +7,20 @@
     $contenu = '
         <div class="row">
             <div class="col-6 col-lg-4">
-                <form action="" method="post">
+                <form action="?url=home/filter" method="post">
                 
                     <div class="form-floating mb-3">
                         <input
                             type="text"
                             class="form-control"
-                            name="formId1"
-                            id="formId1"
-                            placeholder=""
+                            name="modelName"
+                            id="modelName"
+                            placeholder="Modele du véhicule"
                         />
-                        <label for="formId1">Name</label>
+                        <label for="modelName">Modele du véhicule</label>
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="" class="form-label">City</label>
                         <select
                             class="form-select form-select-lg"
@@ -32,7 +32,7 @@
                             <option value="">Istanbul</option>
                             <option value="">Jakarta</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 
